@@ -15,6 +15,15 @@ function HomePage() {
     //state
     const [heroList, setHeroList] = useState([]);
     const [usersList, setUsersList] = useState([]);
+    const [oneHero, setOneHero] = useState('');
+
+    const getRandomHero = HeroList => HeroList.get([...Hero.keys()][Math.floor(Math.random() * HeroList.size)])
+
+    const handleClick = () => {
+        const random = heroList[Math.floor(Math.random() * heroList.length)];
+        setOneHero(random);//value assigned here
+      };
+
 
     // Effects
     useEffect(() => {
@@ -27,6 +36,7 @@ function HomePage() {
             setUsersList(data);
     }, []);
 
+    
     fetch(`${import.meta.env.VITE_API_URL}hero`)
             .then((results) => {
                 return results.json();
@@ -45,6 +55,9 @@ function HomePage() {
                 {heroList.map((hero, key) => {
                     return <HeroCard key={key} heroData={hero} />;
                 })}
+                <button className="btn" onClick={handleClick}>Click me</button>
+                <p>{oneHero}</p>
+                <p>{getRandomHero}</p>
                 {loggedIn&&
                 <div className="home-hero-buttons">
                     <Link className="btn" to="/create-hero">Add a hero card</Link>
