@@ -50,34 +50,34 @@ function HomePage() {
             <div className="hero-section">
                 <h2>Tech trailblazers</h2>
                 <Carousel>
-                {heroList.map((hero, key) => {
-                    return <HeroCard key={key} heroData={hero} />;
-                })}
+                    {heroList.map((hero, key) => {
+                        return <HeroCard key={key} heroData={hero} />;
+                    })}
                 </Carousel>
-                {loggedIn&&
-                <div className="home-hero-buttons">
-                    <Link className="btn" to="/create-hero">Add a hero card</Link>
-                    <Link className="btn" to="/hero">See all cards</Link>
-                </div>}
+                {loggedIn &&
+                    <div className="home-hero-buttons">
+                        <Link className="btn" to="/create-hero">Add a hero card</Link>
+                        <Link className="btn" to="/hero">See all cards</Link>
+                    </div>}
             </div>
 
             <div className="stats-section">
                 <div className="stats">
                     <h3>Did you know?</h3>
-                    <p className="stat-number"/>
-                        {data.counts.map(count => <Count key={count.id} data={count}/>)}
+                    <p className="stat-number" />
+                    {data.counts.map(count => <Count key={count.id} data={count} />)}
                     <p>Computing jobs in the world held by women</p>
                 </div>
                 <div className="stats">
                     <h3>The Slow Rise</h3>
-                    <p className="stat-number"/>
-                        {data.counts2.map(count => <Count key={count.id} data={count}/>)}
+                    <p className="stat-number" />
+                    {data.counts2.map(count => <Count key={count.id} data={count} />)}
                     <p>Represents the global increase of female software engineers in the past 21 years</p>
                 </div>
                 <div className="stats">
                     <h3>Community Pillars</h3>
                     <div className="stat-number">
-                        {data.counts3.map(count => <Count key={count.id} data={count}/>)}
+                        {data.counts3.map(count => <Count key={count.id} data={count} />)}
                     </div>
                     <p>Women have been taught by She Codes since its inception</p>
                 </div>
